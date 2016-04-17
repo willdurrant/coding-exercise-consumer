@@ -29,7 +29,7 @@ mvn eclipse:eclipse
 ## Running the project via command line
 
 - Make sure Mongo is running on localhost with url of `mongodb://localhost/`
-- Optional for using JMS broker make sure ActiveMQ is running on the URL 'tcp://localhost:61616'
+- Optional for using JMS broker make sure ActiveMQ is running on the URL `tcp://localhost:61616`
 
 ```bash
 cd coding-exercise-consumer
