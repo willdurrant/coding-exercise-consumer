@@ -15,6 +15,8 @@ public class Event {
 	@Field("attributes")
 	private List<EventAttribute> eventAttributes;
 
+	private String apiType;
+	
 	public Event() {}
 
 	public Event(List<EventAttribute> eventAttributes) {
@@ -29,10 +31,19 @@ public class Event {
 		return eventAttributes;
 	}
 
+	public String getApiType() {
+		return apiType;
+	}
+
+	public void setApiType(String apiType) {
+		this.apiType = apiType;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((apiType == null) ? 0 : apiType.hashCode());
 		result = prime * result + ((eventAttributes == null) ? 0 : eventAttributes.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
@@ -47,6 +58,11 @@ public class Event {
 		if (getClass() != obj.getClass())
 			return false;
 		Event other = (Event) obj;
+		if (apiType == null) {
+			if (other.apiType != null)
+				return false;
+		} else if (!apiType.equals(other.apiType))
+			return false;
 		if (eventAttributes == null) {
 			if (other.eventAttributes != null)
 				return false;
@@ -59,7 +75,7 @@ public class Event {
 			return false;
 		return true;
 	}
-	
-	
+
+
 
 }

@@ -21,6 +21,8 @@ import com.codingexercise.consumer.repository.EventRepository;
 @RequestMapping("/events")
 public class EventController {
 
+	private static final String HTTP_RESTFUL = "HTTP_RESTFUL";
+
 	private static final Logger log = LoggerFactory.getLogger(EventController.class);
 
 	@Autowired
@@ -32,8 +34,9 @@ public class EventController {
 		List<EventAttribute> eventAttributes = event.getEventAttributes();
 		for (EventAttribute eventAttribute : eventAttributes) {
 			log.debug(
-					"Recieved new event for account number {} and tx amount of {} . About to persist it to the repository.",
+					"Recieved new via Restful API an event for account number {} and tx amount of {} . About to persist it to the repository.",
 					eventAttribute.getAccountNum(), eventAttribute.getTxAmount());
+			event.setApiType(HTTP_RESTFUL);
 		}
 		eventRepository.save(event);
 		
