@@ -6,18 +6,32 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+/**
+ * Domain object for Customer Event.
+ * 
+ * @author wdurrant
+ */
 @Document(collection = "customer_events")
 public class Event {
 
+	/**
+	 * Mongo generated id field.
+	 */
 	@Id
 	private String id;
 
 	@Field("attributes")
 	private List<EventAttribute> eventAttributes;
 
+	/**
+	 * Additional attribute added to the document to record the method by which
+	 * the Consumer received this Event from the Producer. Will either be
+	 * HTTP_REST or JMS_BROKER.
+	 */
 	private String apiType;
-	
-	public Event() {}
+
+	public Event() {
+	}
 
 	public Event(List<EventAttribute> eventAttributes) {
 		this.eventAttributes = eventAttributes;
@@ -75,7 +89,5 @@ public class Event {
 			return false;
 		return true;
 	}
-
-
 
 }

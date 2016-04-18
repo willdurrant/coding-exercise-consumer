@@ -2,20 +2,26 @@ package com.codingexercise.consumer.domain;
 
 import org.springframework.data.mongodb.core.mapping.Field;
 
+/**
+ * Domain object for an Events data attributes.
+ * 
+ * @author wdurrant
+ */
 public class EventAttribute {
 
 	@Field("Account Number")
 	private String accountNum;
-	
+
 	@Field("Transaction Amount")
-	private String txAmount; //TODO use some money amount
-	
+	private String txAmount;
+
 	@Field("Name")
 	private String cardMemberName;
-	
+
 	private String product;
-	
-    public EventAttribute() {}
+
+	public EventAttribute() {
+	}
 
 	public EventAttribute(String accountNum, String txAmount, String cardMemberName, String product) {
 		super();
@@ -40,7 +46,7 @@ public class EventAttribute {
 	public String getProduct() {
 		return product;
 	}
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -85,4 +91,3 @@ public class EventAttribute {
 	}
 
 }
-

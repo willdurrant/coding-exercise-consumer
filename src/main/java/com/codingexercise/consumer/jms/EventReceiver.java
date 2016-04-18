@@ -19,6 +19,11 @@ import com.codingexercise.consumer.domain.Event;
 import com.codingexercise.consumer.domain.EventAttribute;
 import com.codingexercise.consumer.repository.EventRepository;
 
+/**
+ * JMS Broker receiver.
+ * 
+ * @author wdurrant
+ */
 @Component
 public class EventReceiver {
 
